@@ -143,7 +143,7 @@ if [[ $OPEN_COUNT -gt 0 ]]; then
             LOC=$(printf "%.24s..." "$LOC")
         fi
 
-        printf "${CYAN}%-50s${NC} ${GREY}|${NC} %-55s ${GREY}|${NC} ${YELLOW}%-30s${NC}\n" "$REPO_ISSUE" "$TITLE" "$LOC"
+        printf '%b%-50s%b %b|%b %-55s %b|%b %b%-30s%b\n' "$CYAN" "$REPO_ISSUE" "$NC" "$GREY" "$NC" "$TITLE" "$GREY" "$NC" "$YELLOW" "$LOC" "$NC"
     done
 fi
 
