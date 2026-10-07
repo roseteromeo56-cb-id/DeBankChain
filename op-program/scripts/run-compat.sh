@@ -12,5 +12,5 @@ URL="${BASEURL}/${TESTNAME}.tar.bz"
 mkdir -p "${COMPAT_DIR}"
 curl --etag-save "${COMPAT_DIR}/${TESTNAME}-etag.txt" --etag-compare "${COMPAT_DIR}/${TESTNAME}-etag.txt" -L --fail -o "${COMPAT_DIR}/${TESTNAME}.tar.bz" "${URL}"
 tar jxf "${COMPAT_DIR}/${TESTNAME}.tar.bz" -C "${COMPAT_DIR}"
-# shellcheck disable=SC2046
-"${SCRIPTS_DIR}/../bin/op-program" "$(cat "${COMPAT_DIR}/${TESTNAME}/args.txt")"
+read -r -a args < "${COMPAT_DIR}/${TESTNAME}/args.txt"
+"${SCRIPTS_DIR}/../bin/op-program" "${args[@]}"
